@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProUnoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido1" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido2" Type="varchar" MaxLength="30" />
+          <Property Name="Registro" Type="datetime" />
+          <Property Name="Estado" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Devolucion">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Devolucion" Type="datetime" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Herramienta">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="70" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="int" Nullable="false" />
+          <Property Name="Codigo" Type="int" Nullable="false" />
+          <Property Name="Prestamo" Type="datetime" Nullable="false" />
+          <Property Name="Devolucion" Type="datetime" Nullable="false" />
+          <Property Name="Herramientas" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ProUnoDBModelStoreContainer">
+          <EntitySet Name="Colaborador" EntityType="Self.Colaborador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devolucion" EntityType="Self.Devolucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Herramienta" EntityType="Self.Herramienta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prestamo" EntityType="Self.Prestamo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProUnoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Colaborador">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Registro" Type="DateTime" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Devolucion">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Devolucion1" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Herramienta">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="Cedula" />
+          </Key>
+          <Property Name="Cedula" Type="Int32" Nullable="false" />
+          <Property Name="Codigo" Type="Int32" Nullable="false" />
+          <Property Name="Prestamo1" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Devolucion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Herramientas" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ProUnoDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Colaboradors" EntityType="Self.Colaborador" />
+          <EntitySet Name="Devolucions" EntityType="Self.Devolucion" />
+          <EntitySet Name="Herramientas" EntityType="Self.Herramienta" />
+          <EntitySet Name="Prestamoes" EntityType="Self.Prestamo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProUnoDBModelStoreContainer" CdmEntityContainer="ProUnoDBEntities1">
+          <EntitySetMapping Name="Colaboradors">
+            <EntityTypeMapping TypeName="ProUnoDBModel.Colaborador">
+              <MappingFragment StoreEntitySet="Colaborador">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+                <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+                <ScalarProperty Name="Registro" ColumnName="Registro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devolucions">
+            <EntityTypeMapping TypeName="ProUnoDBModel.Devolucion">
+              <MappingFragment StoreEntitySet="Devolucion">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Devolucion1" ColumnName="Devolucion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Herramientas">
+            <EntityTypeMapping TypeName="ProUnoDBModel.Herramienta">
+              <MappingFragment StoreEntitySet="Herramienta">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prestamoes">
+            <EntityTypeMapping TypeName="ProUnoDBModel.Prestamo">
+              <MappingFragment StoreEntitySet="Prestamo">
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Prestamo1" ColumnName="Prestamo" />
+                <ScalarProperty Name="Devolucion" ColumnName="Devolucion" />
+                <ScalarProperty Name="Herramientas" ColumnName="Herramientas" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

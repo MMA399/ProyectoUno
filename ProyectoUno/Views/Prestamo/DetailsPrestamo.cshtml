@@ -1,0 +1,66 @@
+﻿@model ProyectoUno.Models.Prestamo
+
+@{
+    ViewBag.Title = "Prestamo";
+}
+
+<h2>Detalle del Prestamo</h2>
+
+<div>
+    <h4>Informacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prestamo1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prestamo1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Devolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Devolucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Herramientas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Herramientas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "EditPrestamo", new { id = Model.Cedula }) |
+    @Html.ActionLink("Regresar", "IndexPrestamo")
+</p>

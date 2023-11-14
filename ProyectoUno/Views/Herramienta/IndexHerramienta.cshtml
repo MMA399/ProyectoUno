@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProyectoUno.Models.Herramienta>
+
+@{
+    ViewBag.Title = "Herramienta";
+}
+
+<h2>Listado de herramientas</h2>
+
+
+<p>
+    @Html.ActionLink("Ingresar herramienta", "CreateHerramienta", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </th>
+        <td>
+            @Html.ActionLink("Editar", "EditHerramienta", new { id = item.Codigo }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalles", "DetailsHerramienta", new { id = item.Codigo }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Eliminar", "DeleteHerramienta", new { id = item.Codigo }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+    }
+
+</table>

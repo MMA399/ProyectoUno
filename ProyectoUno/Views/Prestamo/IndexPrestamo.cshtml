@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ProyectoUno.Models.Prestamo>
+
+@{
+    ViewBag.Title = "Prestamo";
+}
+
+<h2>Lista de Préstamo de herramientas</h2>
+
+<p>
+    @Html.ActionLink("Prestar", "CreatePrestamo", new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prestamo1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Devolucion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Herramientas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cedula)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prestamo1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Devolucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Herramientas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cantidad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditPrestamo", new { id=item.Cedula}, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Detalle", "DetailsPrestamo", new { id=item.Cedula }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Eliminar", "DeletePrestamo", new { id=item.Cedula }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

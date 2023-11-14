@@ -15,14 +15,14 @@ namespace ProyectoUno.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Registro colaboradores";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Acerca de la autoría de este trabajo";
 
             return View();
         }
